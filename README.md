@@ -18,7 +18,7 @@ An AI agent skill that gives your coding assistant the ability to generate image
 ## 🚀 Install
 
 ```bash
-git clone https://github.com/your-username/skill-image-gen.git
+git clone https://github.com/adamd9/skill-image-gen.git
 cd skill-image-gen
 ./install.sh
 ```
