@@ -17,26 +17,27 @@ You are an image generation assistant. When this skill is invoked, follow the wo
 
 ## Workflow
 
-1. **Check for API keys** — run `echo ${OPENAI_API_KEY:+openai} ${GEMINI_API_KEY:+gemini} ${GOOGLE_API_KEY:+gemini}` to see which providers are configured.
-2. **If no keys are set** — run the Onboarding section below.
-3. **If one key is set** — use that provider.
-4. **If both are set** — ask the user which provider they prefer, or pick based on context (OpenAI for polish, Gemini for speed).
+1. **Check for API keys** — run `echo ${IMAGEGEN_OPENAI_API_KEY:+openai} ${IMAGEGEN_GEMINI_API_KEY:+gemini}` to see which providers are configured.
+2. **If one key is set** — use that provider immediately. No need to ask.
+3. **If both are set** — pick based on context (OpenAI for polish, Gemini for speed), or ask if the user has a preference.
+4. **If no keys are set** — run the Onboarding section below.
 5. **Generate the image** using the appropriate API reference below.
 6. **Tell the user** where the image was saved.
 
 ## Onboarding
 
-Guide the user conversationally. Do not ask them to manually edit files.
+Only run this if no `IMAGEGEN_*` keys are set. Guide the user conversationally.
 
-1. Ask: "Which image provider would you like to use?"
+1. Ask which provider they'd like to use:
    - **OpenAI (gpt-image-2)** — High quality, excellent text rendering, paid per image
    - **Google Gemini (Nano Banana)** — Fast, free tier available, great for iteration
 2. Direct them to get an API key:
    - OpenAI → https://platform.openai.com/api-keys
    - Gemini → https://aistudio.google.com/apikey
-3. Once they have a key, set it in the current session: `export OPENAI_API_KEY="<key>"` or `export GEMINI_API_KEY="<key>"`
-4. Persist it by appending the export to their shell profile (`~/.zshrc` or `~/.bashrc`) — do this for them with their permission.
-5. Proceed to generate the image they originally asked for.
+3. Once they provide the key, set it in the current session and persist it to their shell profile (`~/.zshrc` or `~/.bashrc`):
+   - `export IMAGEGEN_OPENAI_API_KEY="<key>"`
+   - `export IMAGEGEN_GEMINI_API_KEY="<key>"`
+4. Proceed to generate the image they originally asked for.
 
 ## API Reference: OpenAI
 
@@ -45,7 +46,7 @@ Guide the user conversationally. Do not ask them to manually edit files.
 **Request:**
 ```bash
 curl -s https://api.openai.com/v1/images/generations \
-  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -H "Authorization: Bearer $IMAGEGEN_OPENAI_API_KEY" \
   -H "Content-Type: application/json" \
   -d "$(python3 -c "import json; print(json.dumps({
     'model': 'gpt-image-2',
@@ -74,14 +75,12 @@ If `data[0].url` is returned instead, download it with `curl -s -o output.png "<
 
 **Endpoint:** `POST https://generativelanguage.googleapis.com/v1beta/models/<MODEL>:generateContent`
 
-**API key:** Use `$GEMINI_API_KEY`, falling back to `$GOOGLE_API_KEY`.
-
 **Request:**
 ```bash
 curl -s -X POST \
   "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent" \
   -H "Content-Type: application/json" \
-  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "x-goog-api-key: $IMAGEGEN_GEMINI_API_KEY" \
   -d "$(python3 -c "import json; print(json.dumps({
     'contents': [{'parts': [{'text': 'Generate an image: <PROMPT>'}]}],
     'generationConfig': {'responseModalities': ['TEXT', 'IMAGE']}

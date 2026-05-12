@@ -229,5 +229,5 @@ for path in "${installed_paths[@]}"; do
   say "  - $path"
 done
 say ""
-say "Remember to set your API key(s): OPENAI_API_KEY and/or GEMINI_API_KEY."
+say "The skill will guide you through API key setup the first time you generate an image."
 say "Quick start: restart Claude Code CLI or Copilot CLI, then invoke the generate-image skill."
