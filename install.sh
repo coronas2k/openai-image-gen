@@ -73,15 +73,8 @@ check_prerequisites() {
 }
 
 check_sources() {
-  local missing=()
-
-  [ -f "$SCRIPT_DIR/SKILL.md" ] || missing+=("$SCRIPT_DIR/SKILL.md")
-  [ -f "$SCRIPT_DIR/scripts/generate-openai.sh" ] || missing+=("$SCRIPT_DIR/scripts/generate-openai.sh")
-  [ -f "$SCRIPT_DIR/scripts/generate-gemini.sh" ] || missing+=("$SCRIPT_DIR/scripts/generate-gemini.sh")
-
-  if [ "${#missing[@]}" -gt 0 ]; then
-    printf 'Error: Missing required source files:\n' >&2
-    printf '  %s\n' "${missing[@]}" >&2
+  if [ ! -f "$SCRIPT_DIR/generate-image/SKILL.md" ]; then
+    printf 'Error: Missing required source file: %s/generate-image/SKILL.md\n' "$SCRIPT_DIR" >&2
     exit 1
   fi
 }
@@ -100,17 +93,13 @@ install_target() {
   fi
 
   run_cmd mkdir -p "$target"
-  run_cmd rm -rf "$target/SKILL.md" "$target/scripts"
+  run_cmd rm -f "$target/SKILL.md"
 
   if [ "$LINK_MODE" = true ]; then
-    run_cmd ln -s "$SCRIPT_DIR/SKILL.md" "$target/SKILL.md"
-    run_cmd ln -s "$SCRIPT_DIR/scripts" "$target/scripts"
+    run_cmd ln -s "$SCRIPT_DIR/generate-image/SKILL.md" "$target/SKILL.md"
   else
-    run_cmd cp "$SCRIPT_DIR/SKILL.md" "$target/SKILL.md"
-    run_cmd cp -R "$SCRIPT_DIR/scripts" "$target/scripts"
+    run_cmd cp "$SCRIPT_DIR/generate-image/SKILL.md" "$target/SKILL.md"
   fi
-
-  run_cmd chmod +x "$target/scripts/generate-openai.sh" "$target/scripts/generate-gemini.sh"
   say "$label: $status_word at $target"
 }
 
