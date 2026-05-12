@@ -14,11 +14,11 @@ Thumbs.db
 .env.local
 
 # Generated images (don't commit test outputs)
+output/
 *.png
 *.jpg
 *.jpeg
 *.webp
-!examples/*.png
 
 # Node (future VS Code extension)
 node_modules/
