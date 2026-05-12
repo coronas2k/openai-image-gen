@@ -2,7 +2,7 @@
 
 ## Quick comparison
 
-| Feature | OpenAI (gpt-image-1) | Gemini (Nano Banana) |
+| Feature | OpenAI (gpt-image-2) | Gemini (Nano Banana) |
 |---|---|---|
 | API Key | OPENAI_API_KEY | GEMINI_API_KEY |
 | Key URL | platform.openai.com/api-keys | aistudio.google.com/apikey |

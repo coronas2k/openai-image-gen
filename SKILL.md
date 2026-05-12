@@ -2,7 +2,7 @@
 name: generate-image
 description: >-
   Generate images using AI. Use when asked to generate, create, or make images, textures,
-  icons, sprites, artwork, visual assets, or mockups. Supports OpenAI (gpt-image-1) and
+  icons, sprites, artwork, visual assets, or mockups. Supports OpenAI (gpt-image-2) and
   Google Gemini (Nano Banana). Requires an API key for the chosen provider.
 argument-hint: "[description of the image to generate]"
 license: MIT
@@ -26,7 +26,7 @@ If the user hasn't used this skill before, or if the required API key is not set
 ### Provider Selection
 Ask which provider they want to use.
 
-- **OpenAI (gpt-image-1)** — High quality, excellent text rendering, paid per image. Best for production assets.
+- **OpenAI (gpt-image-2)** — High quality, excellent text rendering, paid per image. Best for production assets.
 - **Google Gemini (Nano Banana)** — Fast, free tier available, conversational. Best for quick iterations.
 
 If the user asks what options are available, or wants to try the other service, explain both providers and help them switch.
@@ -55,7 +55,7 @@ bash <SKILL_DIR>/scripts/generate-openai.sh \
   --output ./grass.png \
   --size 1024x1024 \
   --quality medium \
-  --model gpt-image-1
+  --model gpt-image-2
 ```
 
 | Flag | Required | Default | Description |
@@ -64,7 +64,7 @@ bash <SKILL_DIR>/scripts/generate-openai.sh \
 | --output | Yes | — | Output file path |
 | --size | No | 1024x1024 | Dimensions: 1024x1024, 1024x1536, 1536x1024, auto |
 | --quality | No | medium | low, medium, high |
-| --model | No | gpt-image-1 | Model name |
+| --model | No | gpt-image-2 | Model name |
 | --format | No | png | png, jpeg, webp |
 
 ### Gemini Generation

@@ -5,7 +5,7 @@ set -euo pipefail
 
 SIZE="1024x1024"
 QUALITY="medium"
-MODEL="gpt-image-1"
+MODEL="gpt-image-2"
 FORMAT="png"
 PROMPT=""
 OUTPUT=""
@@ -23,7 +23,7 @@ Required:
 Options:
   --size <value>    Image dimensions (default: 1024x1024)
   --quality <value> Quality level (default: medium)
-  --model <value>   Model name (default: gpt-image-1)
+  --model <value>   Model name (default: gpt-image-2)
   --format <value>  Output format: png, jpeg, webp (default: png)
   --help            Print this usage message
 EOF

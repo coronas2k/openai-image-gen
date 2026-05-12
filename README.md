@@ -13,7 +13,7 @@
 
 ## ✨ Features
 
-- Two AI providers: **OpenAI** (`gpt-image-1`) and **Google Gemini** (Nano Banana-style workflows)
+- Two AI providers: **OpenAI** (`gpt-image-2`) and **Google Gemini** (Nano Banana-style workflows)
 - Works with **Claude Code** and **GitHub Copilot CLI**
 - Zero dependencies beyond **curl**, **python3**, and **base64**
 - Guided onboarding — the skill walks you through API key setup
@@ -166,7 +166,7 @@ For more examples, see:
 | `--output <path>` | Yes | Output file path | — |
 | `--size <value>` | No | Image dimensions such as `1024x1024`, `1024x1536`, or `1536x1024` | `1024x1024` |
 | `--quality <value>` | No | Quality level | `medium` |
-| `--model <value>` | No | OpenAI image model | `gpt-image-1` |
+| `--model <value>` | No | OpenAI image model | `gpt-image-2` |
 | `--format <value>` | No | Output format: `png`, `jpeg`, or `webp` | `png` |
 | `--help` | No | Show usage help | — |
 
