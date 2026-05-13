@@ -73,8 +73,8 @@ check_prerequisites() {
 }
 
 check_sources() {
-  if [ ! -f "$SCRIPT_DIR/generate-image/SKILL.md" ]; then
-    printf 'Error: Missing required source file: %s/generate-image/SKILL.md\n' "$SCRIPT_DIR" >&2
+  if [ ! -f "$SCRIPT_DIR/skills/generate-image/SKILL.md" ]; then
+    printf 'Error: Missing required source file: %s/skills/generate-image/SKILL.md\n' "$SCRIPT_DIR" >&2
     exit 1
   fi
 }
@@ -96,9 +96,9 @@ install_target() {
   run_cmd rm -f "$target/SKILL.md"
 
   if [ "$LINK_MODE" = true ]; then
-    run_cmd ln -s "$SCRIPT_DIR/generate-image/SKILL.md" "$target/SKILL.md"
+    run_cmd ln -s "$SCRIPT_DIR/skills/generate-image/SKILL.md" "$target/SKILL.md"
   else
-    run_cmd cp "$SCRIPT_DIR/generate-image/SKILL.md" "$target/SKILL.md"
+    run_cmd cp "$SCRIPT_DIR/skills/generate-image/SKILL.md" "$target/SKILL.md"
   fi
   say "$label: $status_word at $target"
 }
