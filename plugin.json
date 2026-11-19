@@ -3,8 +3,8 @@
   "description": "AI image generation skill for coding workflows — powered by OpenAI (gpt-image-2, gpt-image-2.5/2.6) and Google Gemini (Nano Banana 2.1, Nano Banana Pro). BYO API key — the skill guides you through setup on first use.",
   "version": "1.1.0",
   "author": {
-    "name": "adamd9",
-    "url": "https://github.com/adamd9"
+    "name": "coronas2k",
+    "url": "https://github.com/coronas2k/openai-image-gen"
   },
   "skills": "skills/"
 }
