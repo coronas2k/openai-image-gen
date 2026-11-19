@@ -6,5 +6,6 @@
     "name": "coronas2k",
     "url": "https://github.com/coronas2k/openai-image-gen"
   },
+  "credits": "Based on skill-image-gen by adamd9 (https://github.com/adamd9/skill-image-gen), MIT licensed.",
   "skills": "skills/"
 }

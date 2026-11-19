@@ -83,6 +83,10 @@ skill-image-gen/
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## 🙏 Acknowledgements
+
+This plugin is based on [skill-image-gen](https://github.com/adamd9/skill-image-gen) by [adamd9](https://github.com/adamd9), updated for the latest OpenAI and Gemini image models.
+
 ## 📄 License
 
 MIT — see [LICENSE](LICENSE).
