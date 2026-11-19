@@ -11,7 +11,7 @@ An agent plugin that gives your AI coding assistant the ability to generate imag
 
 ## ✨ Features
 
-- **Two providers:** OpenAI (`gpt-image-2`) and Google Gemini (Nano Banana)
+- **Two providers:** OpenAI (`gpt-image-2`, `gpt-image-2.5`/`2.6`) and Google Gemini (Nano Banana 2.1, Nano Banana Pro)
 - **Zero config up front** — the skill onboards you the first time you use it
 - **Cross-tool compatible** — works in VS Code, Copilot CLI, and Claude Code
 - **Agent plugin format** — discoverable, installable, and manageable from the Extensions view
